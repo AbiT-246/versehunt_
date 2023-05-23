@@ -1,0 +1,23 @@
+navBar {
+  margin: auto;
+}
+
+form {
+  border: red;
+}
+
+.containerDiv {
+  border-radius: 20px;
+  box-shadow: -2px 2px 3px rgb(#fad897);
+  background-color: white;
+}
+
+.form-control {
+  border-radius: 20px;
+}
+
+button {
+  padding: 0.6%;
+  border-radius: 20px;
+  background-image: linear-gradient(#fad897, #fbf9f5);
+}

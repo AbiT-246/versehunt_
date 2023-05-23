@@ -1,0 +1,14 @@
+.specBox {
+  border-radius: 5%;
+}
+img {
+  max-width: 250px;
+  border-radius: 10%;
+}
+
+span {
+  position: relative;
+  top: 8%;
+  left: -5%;
+  color: #fad897c2;
+}
