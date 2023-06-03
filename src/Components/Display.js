@@ -37,9 +37,9 @@ function Display() {
   console.log(poems);
   return (
     <div className="container">
-      <div className="row">
+      <div className="row justify-content-center">
         {poems.map((poem) => (
-          <div className="specBox col-sm m-1">
+          <div className="specBox col-3 m-1">
             <span className="star-icon">
               <i className="fas fa-star fa-2x"></i>
             </span>
