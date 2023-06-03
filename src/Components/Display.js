@@ -8,15 +8,9 @@ import Temp from "../Utilities/debby-hudson-DR31squbFoA-unsplash.jpg";
 
 function Display() {
   const [poems, setPoems] = useState([]);
+  const [urls, setUrls] = useState([]);
 
   useEffect(() => {
-    const urls = [
-      "https://poetrydb.org/title/Ozymandias",
-      "https://poetrydb.org/title/the%20tyger",
-      "https://poetrydb.org/title/howl",
-      "https://poetrydb.org/title/sonnet%2043",
-    ];
-
     const fetchData = async (url) => {
       try {
         const response = await fetch(url);
