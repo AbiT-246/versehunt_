@@ -1,21 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./searchBar.css";
 import { getValue } from "@testing-library/user-event/dist/utils";
+import Context from "./Context";
 
 function SearchBar() {
+  const { poems, changePoems } = useContext(Context);
+
   function updateList(e) {
-    //setstate
-    const box = document.getElementById("top");
-    const title = document.getElementsByClassName("title");
     const titles = document.querySelectorAll(".title");
     titles.forEach((title) => {
       title.remove();
     });
   }
 
-  function updateListFinal() {
+  async function updateListFinal(e) {
+    e.preventDefault();
     var inputValue = document.getElementById("input").value;
-    //setstate
+    let currUrl = `https://poetrydb.org/title/${inputValue}`;
+    try {
+      const response = await fetch(currUrl);
+      const poems = await response.json();
+      changePoems(poems);
+    } catch {
+      console.log("Error");
+    }
   }
   return (
     <navBar className="navbar">
