@@ -46,11 +46,15 @@ function Display() {
             <img className="w-100" src={Temp} />
             <h6
               className="mt-2 text-center"
-              style={{ fontfamily: "unset", fontWeight: "bolder" }}
+              style={{
+                fontfamily: "unset",
+                fontWeight: "bolder",
+                color: "#a3a399",
+              }}
             >
               {poem.title}
             </h6>
-            <p style={{ color: "#000000a3" }} className="text-center">
+            <p style={{ color: "#a3a399" }} className="text-center">
               {poem.author}
             </p>
           </div>
