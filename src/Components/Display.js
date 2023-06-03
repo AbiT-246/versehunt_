@@ -7,6 +7,7 @@ import Sonnet from "../Utilities/Sonnet43.jpg";
 import Temp from "../Utilities/debby-hudson-DR31squbFoA-unsplash.jpg";
 import Context from "./Context";
 import { NavLink } from "react-router-dom";
+import Poem from "../Pages/Poem";
 
 function Display() {
   const { poems, changePoems } = useContext(Context);
