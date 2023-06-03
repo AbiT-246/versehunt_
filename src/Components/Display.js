@@ -1,21 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./Display.css";
 import Ozymandias from "../Utilities/Ozymandias.jpg";
 import TheTyger from "../Utilities/TheTyger.jpg";
 import Howl from "../Utilities/Howl.jpg";
 import Sonnet from "../Utilities/Sonnet43.jpg";
 import Temp from "../Utilities/debby-hudson-DR31squbFoA-unsplash.jpg";
+import Context from "./Context";
 
 function Display() {
-  const [poems, setPoems] = useState([]);
-  const [urls, setUrls] = useState([]);
+  const { poems, changePoems } = useContext(Context);
 
   useEffect(() => {
+    const urls = [
+      "https://poetrydb.org/title/Ozymandias",
+      "https://poetrydb.org/title/the%20tyger",
+      "https://poetrydb.org/title/howl",
+      "https://poetrydb.org/title/sonnet%2043",
+    ];
     const fetchData = async (url) => {
       try {
         const response = await fetch(url);
         const poem = await response.json();
-        setPoems((prevPoems) => [...prevPoems, poem]);
+        changePoems((prevPoems) => [...prevPoems, poem[0]]);
       } catch (error) {
         console.log(error);
       }
@@ -28,7 +34,7 @@ function Display() {
 
     fetchPoems();
   }, []);
-
+  console.log(poems);
   return (
     <div className="container">
       <div className="row">
@@ -42,10 +48,10 @@ function Display() {
               className="mt-2 text-center"
               style={{ fontfamily: "unset", fontWeight: "bolder" }}
             >
-              {poem[0].title}
+              {poem.title}
             </h6>
             <p style={{ color: "#000000a3" }} className="text-center">
-              {poem[0].author}
+              {poem.author}
             </p>
           </div>
         ))}
