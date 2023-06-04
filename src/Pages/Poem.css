@@ -1,0 +1,31 @@
+.Holder {
+  position: relative;
+  background: linear-gradient(rgba(36, 27, 2, 0.998), rgba(79, 67, 33, 0.7)),
+    url("/src/Utilities/Background2.jpg");
+  color: #dfd5c2;
+  width: 100vw;
+  height: 100vh;
+  min-height: 1000px;
+}
+h2 {
+  position: absolute;
+  top: 5%;
+  font-weight: bolder;
+  margin-left: 10%;
+  font-family: "Source Sans Pro", sans-serif;
+}
+#lines {
+  position: relative;
+  top: 14%;
+  margin-left: 10%;
+  font-weight: bold;
+  font-family: "Sofia Sans Semi Condensed", sans-serif;
+}
+#author {
+  left: 60%;
+  top: 10%;
+  width: 20%;
+  height: 30%;
+  background-color: transparent;
+  box-shadow: 2px -2px 20px inset #0000008f;
+}
