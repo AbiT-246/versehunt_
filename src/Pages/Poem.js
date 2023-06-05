@@ -25,34 +25,34 @@ function Poem() {
     fetchLines();
   }, []);
 
-  useEffect(() => {
-    const fetchAuthor = async () => {
-      const axios = require("axios");
+  // useEffect(() => {
+  //   function fetchAuthor() {
+  //     const formdata = new FormData();
+  //     formdata.append("key", "f1c9e53fc3c5a8ca4fe97b2263f426cb");
+  //     formdata.append("txt", "Margaret Hamilton");
 
-      const options = {
-        method: "GET",
-        url: "https://search-celebrity-biography.p.rapidapi.com/search/jimmy%20fallon",
-        headers: {
-          "X-RapidAPI-Key":
-            "b4571786b7msh86aef6cc5045cfep135fcdjsn642da6f9ec96",
-          "X-RapidAPI-Host": "search-celebrity-biography.p.rapidapi.com",
-        },
-      };
+  //     const requestOptions = {
+  //       method: "POST",
+  //       body: formdata,
+  //       redirect: "follow",
+  //     };
 
-      try {
-        const response = await axios.request(options);
-        console.log(response);
-        setAuthorInfo(response);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  //     fetch(
+  //       "https://api.meaningcloud.com/documentstructure-1.0",
+  //       requestOptions
+  //     )
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         setAuthorInfo(data);
+  //         console.log(data);
+  //       })
+  //       .catch((error) => console.log("error", error));
+  //   }
 
-    fetchAuthor();
-  }, [author]);
+  //   fetchAuthor();
+  // }, []);
 
   console.log(lines);
-  console.log(authorInfo);
 
   return (
     <div className="Holder">
