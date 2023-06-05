@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./Poem.css";
+import axios from "axios";
 
 function Poem() {
   const { title } = useParams();
@@ -26,17 +27,24 @@ function Poem() {
 
   useEffect(() => {
     const fetchAuthor = async () => {
-      if (author !== "") {
-        const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-        const apiUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&exintro=true&titles=${author}`;
+      const axios = require("axios");
 
-        try {
-          const response = await fetch(proxyUrl + apiUrl);
-          const result = await response.json();
-          setAuthorInfo(result);
-        } catch (error) {
-          console.error("Error:", error);
-        }
+      const options = {
+        method: "GET",
+        url: "https://search-celebrity-biography.p.rapidapi.com/search/jimmy%20fallon",
+        headers: {
+          "X-RapidAPI-Key":
+            "b4571786b7msh86aef6cc5045cfep135fcdjsn642da6f9ec96",
+          "X-RapidAPI-Host": "search-celebrity-biography.p.rapidapi.com",
+        },
+      };
+
+      try {
+        const response = await axios.request(options);
+        console.log(response);
+        setAuthorInfo(response);
+      } catch (error) {
+        console.error(error);
       }
     };
 
