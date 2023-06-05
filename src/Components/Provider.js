@@ -3,6 +3,7 @@ import Context from "./Context";
 
 const Provider = ({ children }) => {
   const [poems, setPoems] = useState([]);
+  const [searched, setSearched] = useState(false);
 
   const changePoems = (result) => {
     setPoems(result);
