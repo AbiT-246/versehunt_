@@ -16,7 +16,7 @@ h2 {
 }
 #lines {
   position: relative;
-  top: 14%;
+  top: 17%;
   margin-left: 10%;
   font-weight: bold;
   font-family: "Sofia Sans Semi Condensed", sans-serif;
@@ -29,10 +29,16 @@ h2 {
   background-color: transparent;
   box-shadow: 2px -2px 20px inset #0000008f;
 }
-.som {
-  position: relative;
-  top: 50%;
-  left: 40%;
-  color: #fad897c2;
-  z-index: 10;
+
+.icon1 {
+  position: absolute;
+  left: 10%;
+  top: 9.5%;
+  height: 5%;
+}
+.icon2 {
+  position: absolute;
+  left: 14%;
+  top: 9.5%;
+  height: 5%;
 }
