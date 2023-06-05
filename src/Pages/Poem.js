@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./Poem.css";
+import axios from "axios";
 
 function Poem() {
   const { title } = useParams();
@@ -24,27 +25,34 @@ function Poem() {
     fetchLines();
   }, []);
 
-  useEffect(() => {
-    const fetchAuthor = async () => {
-      if (author !== "") {
-        const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-        const apiUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&exintro=true&titles=${author}`;
+  // useEffect(() => {
+  //   function fetchAuthor() {
+  //     const formdata = new FormData();
+  //     formdata.append("key", "f1c9e53fc3c5a8ca4fe97b2263f426cb");
+  //     formdata.append("txt", "Margaret Hamilton");
 
-        try {
-          const response = await fetch(proxyUrl + apiUrl);
-          const result = await response.json();
-          setAuthorInfo(result);
-        } catch (error) {
-          console.error("Error:", error);
-        }
-      }
-    };
+  //     const requestOptions = {
+  //       method: "POST",
+  //       body: formdata,
+  //       redirect: "follow",
+  //     };
 
-    fetchAuthor();
-  }, [author]);
+  //     fetch(
+  //       "https://api.meaningcloud.com/documentstructure-1.0",
+  //       requestOptions
+  //     )
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         setAuthorInfo(data);
+  //         console.log(data);
+  //       })
+  //       .catch((error) => console.log("error", error));
+  //   }
+
+  //   fetchAuthor();
+  // }, []);
 
   console.log(lines);
-  console.log(authorInfo);
 
   return (
     <div className="Holder">
