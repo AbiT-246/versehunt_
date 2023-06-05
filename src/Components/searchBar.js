@@ -5,6 +5,7 @@ import Context from "./Context";
 
 function SearchBar() {
   const { poems, changePoems } = useContext(Context);
+  const { searched, changed } = useContext(Context);
 
   function updateList(e) {
     const titles = document.querySelectorAll(".title");
@@ -21,6 +22,7 @@ function SearchBar() {
       const response = await fetch(currUrl);
       const poems = await response.json();
       changePoems(poems);
+      changed();
     } catch {
       console.log("Error");
     }
