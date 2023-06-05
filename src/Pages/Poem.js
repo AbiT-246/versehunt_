@@ -52,6 +52,8 @@ function Poem() {
   // }, []);
 
   function textToSpeech() {
+    var element = document.getElementById("icon1");
+    element.classList.toggle("red");
     if (!isPlaying) {
       const poemText = lines.join(" ");
       speak({ text: poemText });
@@ -66,7 +68,7 @@ function Poem() {
     <div className="Holder">
       <h2>{title}</h2>
 
-      <span onClick={textToSpeech} className="icon1 m-3">
+      <span id="icon1" onClick={textToSpeech} className="icon1 m-3">
         <i className="fas fa-microphone" style={{ fontSize: "150%" }}></i>
       </span>
       <span className="icon2 m-3">
