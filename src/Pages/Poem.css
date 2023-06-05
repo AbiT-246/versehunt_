@@ -29,3 +29,10 @@ h2 {
   background-color: transparent;
   box-shadow: 2px -2px 20px inset #0000008f;
 }
+.som {
+  position: relative;
+  top: 50%;
+  left: 40%;
+  color: #fad897c2;
+  z-index: 10;
+}

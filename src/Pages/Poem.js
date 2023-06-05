@@ -56,6 +56,9 @@ function Poem() {
 
   return (
     <div className="Holder">
+      <span className="som">
+        <i className="fas fa-star fa-2x"></i>
+      </span>
       <h2>{title}</h2>
       {lines.map((line) => {
         return <p id="lines">{line}</p>;
