@@ -9,39 +9,13 @@ import Context from "./Context";
 import { NavLink } from "react-router-dom";
 import Poem from "../Pages/Poem";
 
-function Display() {
-  const { poems, changePoems } = useContext(Context);
+export const List = ({ results }) => {
   const { searched, changed } = useContext(Context);
 
-  useEffect(() => {
-    const urls = [
-      "https://poetrydb.org/title/Ozymandias",
-      "https://poetrydb.org/title/the%20tyger",
-      "https://poetrydb.org/title/howl",
-      "https://poetrydb.org/title/sonnet%2043",
-    ];
-    const fetchData = async (url) => {
-      try {
-        const response = await fetch(url);
-        const poem = await response.json();
-        changePoems((prevPoems) => [...prevPoems, poem[0]]);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    const fetchPoems = async () => {
-      const promises = urls.map((url) => fetchData(url));
-      await Promise.all(promises);
-    };
-
-    fetchPoems();
-  }, []);
-  console.log(poems);
   return (
     <div className="container">
       <div className="row justify-content-center">
-        {poems.map((poem) => (
+        {results.map((poem) => (
           <div className="specBox col-3 m-1">
             <NavLink to={`/Poem/${poem.title}`}>
               {searched && (
@@ -69,6 +43,37 @@ function Display() {
       </div>
     </div>
   );
+};
+
+function Display() {
+  const { poems, changePoems } = useContext(Context);
+
+  useEffect(() => {
+    const urls = [
+      "https://poetrydb.org/title/Ozymandias",
+      "https://poetrydb.org/title/the%20tyger",
+      "https://poetrydb.org/title/howl",
+      "https://poetrydb.org/title/sonnet%2043",
+    ];
+    const fetchData = async (url) => {
+      try {
+        const response = await fetch(url);
+        const poem = await response.json();
+        changePoems((prevPoems) => [...prevPoems, poem[0]]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    const fetchPoems = async () => {
+      const promises = urls.map((url) => fetchData(url));
+      await Promise.all(promises);
+    };
+
+    fetchPoems();
+  }, []);
+  console.log(poems);
+  return <List results={poems} />;
 }
 
 export default Display;
