@@ -24,37 +24,6 @@ function Poem() {
     fetchLines();
   }, []);
 
-  useEffect(() => {
-    async function fetchAuthor() {
-      const url =
-        "https://microsoft-translator-text.p.rapidapi.com/BreakSentence?api-version=3.0";
-      const options = {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          "X-RapidAPI-Key":
-            "b4571786b7msh86aef6cc5045cfep135fcdjsn642da6f9ec96",
-          "X-RapidAPI-Host": "microsoft-translator-text.p.rapidapi.com",
-        },
-        body: [
-          {
-            Text: "How are you? I am fine. What did you do today?",
-          },
-        ],
-      };
-
-      try {
-        const response = await fetch(url, options);
-        const result = await response.text();
-        console.log(result);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    fetchAuthor();
-  }, []);
-
   function textToSpeech() {
     var element = document.getElementById("icon1");
     element.classList.toggle("red");
@@ -85,7 +54,7 @@ function Poem() {
         </p>
       ))}
 
-      {/* <div id="author" className="position-absolute d-inline-block">
+      {/* <div id="author" className="d-inline-block">
         HELLO
       </div> */}
     </div>
