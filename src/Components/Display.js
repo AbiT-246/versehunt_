@@ -11,6 +11,7 @@ import Poem from "../Pages/Poem";
 
 function Display() {
   const { poems, changePoems } = useContext(Context);
+  const { searched, changed } = useContext(Context);
 
   useEffect(() => {
     const urls = [
@@ -43,9 +44,11 @@ function Display() {
         {poems.map((poem) => (
           <div className="specBox col-3 m-1">
             <NavLink to={`/Poem/${poem.title}`}>
-              <span className="star-icon">
-                <i className="fas fa-star fa-2x"></i>
-              </span>
+              {searched && (
+                <span className="star-icon">
+                  <i className="fas fa-star fa-2x"></i>
+                </span>
+              )}
               <img className="w-100" src={Temp} />
               <h6
                 className="mt-2 text-center"
