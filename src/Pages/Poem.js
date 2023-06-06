@@ -24,32 +24,36 @@ function Poem() {
     fetchLines();
   }, []);
 
-  // useEffect(() => {
-  //   function fetchAuthor() {
-  //     const formdata = new FormData();
-  //     formdata.append("key", "f1c9e53fc3c5a8ca4fe97b2263f426cb");
-  //     formdata.append("txt", "Margaret Hamilton");
+  useEffect(() => {
+    async function fetchAuthor() {
+      const url =
+        "https://microsoft-translator-text.p.rapidapi.com/BreakSentence?api-version=3.0";
+      const options = {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          "X-RapidAPI-Key":
+            "b4571786b7msh86aef6cc5045cfep135fcdjsn642da6f9ec96",
+          "X-RapidAPI-Host": "microsoft-translator-text.p.rapidapi.com",
+        },
+        body: [
+          {
+            Text: "How are you? I am fine. What did you do today?",
+          },
+        ],
+      };
 
-  //     const requestOptions = {
-  //       method: "POST",
-  //       body: formdata,
-  //       redirect: "follow",
-  //     };
+      try {
+        const response = await fetch(url, options);
+        const result = await response.text();
+        console.log(result);
+      } catch (error) {
+        console.error(error);
+      }
+    }
 
-  //     fetch(
-  //       "https://api.meaningcloud.com/documentstructure-1.0",
-  //       requestOptions
-  //     )
-  //       .then((response) => response.json())
-  //       .then((data) => {
-  //         setAuthorInfo(data);
-  //         console.log(data);
-  //       })
-  //       .catch((error) => console.log("error", error));
-  //   }
-
-  //   fetchAuthor();
-  // }, []);
+    fetchAuthor();
+  }, []);
 
   function textToSpeech() {
     var element = document.getElementById("icon1");
@@ -81,9 +85,9 @@ function Poem() {
         </p>
       ))}
 
-      <div id="author" className="position-absolute d-inline-block">
+      {/* <div id="author" className="position-absolute d-inline-block">
         HELLO
-      </div>
+      </div> */}
     </div>
   );
 }

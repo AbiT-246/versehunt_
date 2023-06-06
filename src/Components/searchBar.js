@@ -18,10 +18,18 @@ function SearchBar() {
     e.preventDefault();
     var inputValue = document.getElementById("input").value;
     let currUrl = `https://poetrydb.org/title/${inputValue}`;
+    let currUrl2 = `https://poetrydb.org/author/${inputValue}`;
     try {
       const response = await fetch(currUrl);
       const poems = await response.json();
-      changePoems(poems);
+      const response2 = await fetch(currUrl2);
+      const byAuthor = await response2.json();
+      const total = poems
+        .concat(byAuthor)
+        .filter((item) => item !== undefined && item.title);
+      changePoems(total);
+      console.log(total);
+      console.log(total[0]);
       changed();
     } catch {
       console.log("Error");
