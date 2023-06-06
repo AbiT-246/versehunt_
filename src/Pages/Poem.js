@@ -43,7 +43,7 @@ function Poem() {
 
   return (
     <>
-      <div className="Holder">
+      <div className="Holder mb-3">
         <h2 className="my-2">{title}</h2>
 
         <span id="icon1" onClick={textToSpeech} className="icon1 m-3">
