@@ -7,6 +7,43 @@ import Sonnet from "../Utilities/Sonnet43.jpg";
 import Temp from "../Utilities/debby-hudson-DR31squbFoA-unsplash.jpg";
 import Context from "./Context";
 import { NavLink } from "react-router-dom";
+import Poem from "../Pages/Poem";
+
+export const List = ({ results }) => {
+  const { searched, changed } = useContext(Context);
+
+  return (
+    <div className="container">
+      <div className="row justify-content-center">
+        {results.map((poem) => (
+          <div className="specBox col-3 m-1">
+            <NavLink to={`/Poem/${poem.title}`}>
+              {searched && (
+                <span className="star-icon">
+                  <i className="fas fa-star fa-2x"></i>
+                </span>
+              )}
+              <img className="w-100" src={Temp} />
+              <h6
+                className="mt-2 text-center"
+                style={{
+                  fontfamily: "unset",
+                  fontWeight: "bolder",
+                  color: "#a3a399",
+                }}
+              >
+                {poem.title}
+              </h6>
+              <p style={{ color: "#a3a399" }} className="text-center">
+                {poem.author}
+              </p>
+            </NavLink>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 function Display() {
   const { poems, changePoems } = useContext(Context);
@@ -36,35 +73,7 @@ function Display() {
     fetchPoems();
   }, []);
   console.log(poems);
-  return (
-    <div className="container">
-      <div className="row justify-content-center">
-        {poems.map((poem) => (
-          <div className="specBox col-3 m-1">
-            <NavLink to={`/Poem/${poem.title}`}>
-              <span className="star-icon">
-                <i className="fas fa-star fa-2x"></i>
-              </span>
-              <img className="w-100" src={Temp} />
-              <h6
-                className="mt-2 text-center"
-                style={{
-                  fontfamily: "unset",
-                  fontWeight: "bolder",
-                  color: "#a3a399",
-                }}
-              >
-                {poem.title}
-              </h6>
-              <p style={{ color: "#a3a399" }} className="text-center">
-                {poem.author}
-              </p>
-            </NavLink>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+  return <List results={poems} />;
 }
 
 export default Display;
