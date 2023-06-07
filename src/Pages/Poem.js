@@ -21,13 +21,14 @@ function Poem() {
         const data = await response.json();
         setLines(data[0].lines);
         setAuthor(data[0].author);
+        window.scrollTo(0, -10000);
       } catch (error) {
         console.error("Error:", error);
       }
     };
 
     fetchLines();
-  }, []);
+  }, [title]);
 
   function textToSpeech() {
     var element = document.getElementById("icon1");
