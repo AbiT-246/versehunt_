@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Poem.css";
 import { useSpeechSynthesis } from "react-speech-kit";
 import MoreWorks from "../Components/MoreWorks";
@@ -45,12 +46,17 @@ function Poem() {
     <>
       <div className="Holder mb-3">
         <h2 className="my-2">{title}</h2>
-
+        <h6 className="nameDisp">{author}</h6>
         <span id="icon1" onClick={textToSpeech} className="icon1 m-3">
           <i className="fas fa-microphone" style={{ fontSize: "150%" }}></i>
         </span>
         <span className="icon2 m-3">
           <i className="fas fa-language" style={{ fontSize: "150%" }}></i>
+        </span>
+        <span className="moreBy px-3 rounded">
+          <a className="toBottom" href="#Reference">
+            More by {author}
+          </a>
         </span>
         <div className="mt-5 lines container position-absolute">
           {lines.map((line, index) => (
@@ -59,10 +65,18 @@ function Poem() {
             </p>
           ))}
         </div>
+        <div className="position-relative"></div>
       </div>
-      <Provider>
-        <MoreWorks author={author} />
-      </Provider>
+      <div id="moreWorks" className="position-relative">
+        <h3 id="Reference" className="position-relative ml-5 mt-5">
+          More by {author}...
+        </h3>
+        <div id="theMore" className="position-relative">
+          <Provider>
+            <MoreWorks author={author} />
+          </Provider>
+        </div>
+      </div>
     </>
   );
 }
