@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import "./searchBar.css";
-import { getValue } from "@testing-library/user-event/dist/utils";
 import Context from "./Context";
 
 function SearchBar() {
