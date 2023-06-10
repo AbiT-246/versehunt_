@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 import "./Poem.css";
 import { useSpeechSynthesis } from "react-speech-kit";
 import MoreWorks from "../Components/MoreWorks";
@@ -10,7 +9,7 @@ function Poem() {
   const { title } = useParams();
   const [lines, setLines] = useState([]);
   const [author, setAuthor] = useState("");
-  const [isPlaying, setIsPlaying] = useState(false); // State variable to track if speech is playing
+  const [isPlaying, setIsPlaying] = useState(false);
   const { speak, cancel } = useSpeechSynthesis();
 
   useEffect(() => {

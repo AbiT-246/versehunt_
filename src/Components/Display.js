@@ -1,13 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
 import "./Display.css";
-import Ozymandias from "../Utilities/Ozymandias.jpg";
-import TheTyger from "../Utilities/TheTyger.jpg";
-import Howl from "../Utilities/Howl.jpg";
-import Sonnet from "../Utilities/Sonnet43.jpg";
-import Temp from "../Utilities/debby-hudson-DR31squbFoA-unsplash.jpg";
+import Temp from "../Utilities/Thumbnail.jpg";
 import Context from "./Context";
 import { NavLink } from "react-router-dom";
-import Poem from "../Pages/Poem";
 
 export const List = ({ results }) => {
   const { searched, changed } = useContext(Context);
