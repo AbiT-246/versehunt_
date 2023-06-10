@@ -38,12 +38,14 @@ h2 {
   left: 10%;
   top: 19%;
   height: 5%;
+  margin-top: 1.4%;
 }
 .icon2 {
   position: absolute;
   left: 14%;
   top: 19%;
   height: 5%;
+  margin-top: 1.4%;
 }
 
 .moreBy {
@@ -53,6 +55,7 @@ h2 {
   height: 5%;
   width: fit-content;
   background-color: #dfd5c2;
+  margin-top: 0.1%;
 }
 
 .moreBy:hover {
@@ -104,4 +107,20 @@ h2 {
   font-family: "Alegreya Sans", sans-serif;
   top: 2%;
   font-size: 28px;
+}
+
+@media (min-width: 1380px) {
+  #lines {
+    margin-left: 12%;
+  }
+}
+@media (min-width: 1590px) {
+  #lines {
+    margin-left: 13%;
+  }
+}
+@media (max-width: 880px) {
+  .sizeChange {
+    font-size: 25px;
+  }
 }

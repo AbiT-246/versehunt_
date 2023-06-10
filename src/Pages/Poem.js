@@ -22,6 +22,10 @@ function Poem() {
         setLines(data[0].lines);
         setAuthor(data[0].author);
         window.scrollTo(0, -10000);
+        if (title.length > 24) {
+          var element = document.getElementById("title");
+          element.classList.add("sizeChange");
+        }
       } catch (error) {
         console.error("Error:", error);
       }
@@ -46,12 +50,14 @@ function Poem() {
   return (
     <>
       <div className="Holder mb-3">
-        <h2 className="my-2">{title}</h2>
+        <h2 id="title" className="my-2">
+          {title}
+        </h2>
         <h6 className="nameDisp">{author}</h6>
-        <span id="icon1" onClick={textToSpeech} className="icon1 m-3">
+        <span id="icon1" onClick={textToSpeech} className="icon1">
           <i className="fas fa-microphone" style={{ fontSize: "150%" }}></i>
         </span>
-        <span className="icon2 m-3">
+        <span className="icon2">
           <i className="fas fa-language" style={{ fontSize: "150%" }}></i>
         </span>
         <span className="moreBy px-3 rounded">
