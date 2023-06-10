@@ -1,6 +1,6 @@
-# Verse Hunt
+# VerseHunt
 
-## **Do you like Poetry? Welcome to Verse Hunt!**
+## **Do you like Poetry? Welcome to VerseHunt!**
 
 This website is a search engine for the most famous and classical poems in the world by the most renowned poets.
 
